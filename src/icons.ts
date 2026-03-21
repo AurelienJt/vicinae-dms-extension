@@ -8,6 +8,7 @@ const jupyterIcon = `${environment.assetsPath}/file_icons/jupyter.svg`;
 const imageIcon = `${environment.assetsPath}/file_icons/image.svg`;
 export const genericFileIcon = `${environment.assetsPath}/file_icons/generic_file.svg`;
 
+/** Maps normalized file extensions to either Vicinae icons or bundled asset icons. */
 export const EXTENSION_ICON_MAP: Record<string, Icon | string> = {
   json: Icon.Json,
   jsonc: Icon.Json,

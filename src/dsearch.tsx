@@ -14,6 +14,7 @@ import {
   HOME_DIRECTORY,
   prettifyData,
   PrettyHit,
+  getDirectoryPath,
 } from "./utils";
 
 const SEARCH_MODES = {
@@ -23,10 +24,6 @@ const SEARCH_MODES = {
 } as const;
 
 type SearchMode = (typeof SEARCH_MODES)[keyof typeof SEARCH_MODES];
-
-function getDirectoryPath(filePath: string): string {
-  return filePath.split("/").slice(0, -1).join("/");
-}
 
 /** Runs the backend search and decorates results for UI rendering. */
 async function loadHits(
@@ -38,6 +35,7 @@ async function loadHits(
   return prettifyData(rawHits);
 }
 
+/** Renders the interactive DMS file search list command. */
 export default function ControlledList(
   props: LaunchProps<{ arguments: Arguments }>,
 ) {

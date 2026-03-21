@@ -3,18 +3,20 @@
   "name": "vicinae-dms-extension",
   "title": "DankMaterialShell Integration",
   "description": "Integrate Vicinae into DankMaterialShell",
-  "categories": [],
+  "categories": [
+    "System"
+  ],
   "license": "MIT",
   "author": "AurelienJt",
   "contributors": [],
   "pastContributors": [],
-  "icon": "DVicinae.png",
+  "icon": "vicinae-dms-logo.png",
   "commands": [
     {
       "name": "dsearch",
       "title": "Search Files",
       "subtitle": "Search files with dsearch",
-      "description": "Searches system files with DMS dsearch utility (Make sure it is installed & running). Cool file icons included 😃",
+      "description": "Searches system files with DMS `dsearch utility` (Make sure it is installed. running and listening on port localhost:43654). Cool file icons included 😃",
       "mode": "view",
       "arguments": [
         {
@@ -56,7 +58,15 @@
       "mode": "no-view"
     }
   ],
-  "preferences": [],
+  "preferences": [
+    {
+      "name": "dsearch_port",
+      "description": "API Port used by the dsearch API to listen for requests. Leave empty for default value (43654).",
+      "title": "dsearch API Port (Default: 43654)",
+      "required": false,
+      "type": "textfield"
+    }
+  ],
   "scripts": {
     "build": "vici build",
     "dev": "vici develop",

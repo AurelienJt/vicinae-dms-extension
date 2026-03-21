@@ -6,10 +6,12 @@ import {
   Toast,
 } from "@vicinae/api";
 import { request } from "undici";
+import { dsearch_port } from "./preferences";
 
-const REINDEX_ENDPOINT = "http://localhost:43654/reindex"; //FIXME: One day PORT should be magic number...
-const SYNC_ENDPOINT = "http://localhost:43654/sync";
+const REINDEX_ENDPOINT = `http://localhost:${dsearch_port}/reindex`;
+const SYNC_ENDPOINT = `http://localhost:${dsearch_port}/sync`;
 
+/** Triggers quick/full indexing through the DMS backend based on the selected command argument. */
 export default async function dsearchIndex(
   props: LaunchProps<{ arguments: Arguments }>,
 ) {
@@ -27,8 +29,8 @@ export default async function dsearchIndex(
       toast.title = "Quick reindexing started successfully";
     } catch (error) {
       toast.style = Toast.Style.Failure;
-      toast.title = "Sync failed";
-      console.error("Error during sync:", error);
+      toast.title = "Quick reindexing failed. Check logs for details.";
+      console.error("Error during quick reindexing:", error);
     }
   } else if (props.arguments.reindex_mode === "full") {
     const toast = await showToast(
@@ -41,7 +43,7 @@ export default async function dsearchIndex(
       toast.title = "Full reindexing started successfully";
     } catch (error) {
       toast.style = Toast.Style.Failure;
-      toast.title = "Full reindexing failed";
+      toast.title = "Full reindexing failed. Check logs for details.";
       console.error("Error during full reindexing:", error);
     }
   }
