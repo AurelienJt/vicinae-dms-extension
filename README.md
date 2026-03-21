@@ -1,15 +1,21 @@
-# Vicinae Extension
+# DankMaterialShell Vicinae Extension
 
-Congratulations on generating your new Vicinae extension!
+A Vicinae extension (`vicinae-dms-extions`) that integrates with the DankMaterialShell, and mostly the DMS search utility to:
+- search indexed files with rich file-type icons,
+- trigger quick/full reindex operations,
+- and open DMS settings.
 
-You can install the required dependencies and run your extension in development mode like so:
+If you would like to add more features, do feel free to open a PR, or suggest it in the issues section. 😄
 
-```bash
-npm install
-npm run dev
-```
-If you want to build the production bundle, simply run:
+## Available Vicinae Commands
 
-```bash
-npm run build
-```
+- `dsearch <optional: Folder_Scope>` (Search Files)  
+  Searches files through DMS (`dsearch` backend must be installed and available on `localhost:43654`). You can optionally specify a folder scope to limit the search to a specific directory. Note that by default, the folder scope will append to your home directory. For example, if you specify `Documents`, the search will be limited to `~/Documents`. If you want to specify an absolute path, you can start your option with `/` (e.g., `./path/to/folder`). If you do, make sure `dsearch` is configured to allow searching in that path.
+
+- `dsearch_index` (Reindex Files for Search)  
+  Runs asynchronous indexing with a required mode dropdown argument:
+  - `quick`
+  - `full`
+
+- `dsettings` (Settings)  
+  Opens the DMS settings panel.

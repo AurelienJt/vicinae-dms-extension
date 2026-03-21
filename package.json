@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/vicinaehq/vicinae/refs/heads/main/extra/schemas/extension.json",
-  "name": "dms-file-search",
-  "title": "DankMaterialShell",
+  "name": "vicinae-dms-extension",
+  "title": "DankMaterialShell Integration",
   "description": "Integrate Vicinae into DankMaterialShell",
   "categories": [],
   "license": "MIT",
