@@ -1,7 +1,7 @@
 # DankMaterialShell Vicinae Extension
 
-A Vicinae extension (`vicinae-dms-extions`) that integrates with the DankMaterialShell, and mostly the DMS search utility to:
-- search indexed files with rich file-type icons,
+A Vicinae extension (`vicinae-dms-extions`) that integrates with the [DankMaterialShell](https://danklinux.com/) to:
+- search indexed files with rich file-type icons using the DMS search utility,
 - trigger quick/full reindex operations,
 - and open DMS settings.
 
@@ -11,11 +11,11 @@ If you would like to add more features, do feel free to open a PR, or suggest it
 
 - `dsearch <optional: Folder_Scope>` (Search Files)  
 
-  Searches files through DMS (`dsearch` backend must be installed and available on `localhost:43654`). You can optionally specify a folder scope to limit the search to a specific directory. Note that by default, the folder scope will append to your home directory. For example, if you specify `Documents`, the search will be limited to `~/Documents`. If you want to specify an absolute path, you can start your option with `/` (e.g., `/path/to/folder`). If you do, make sure `dsearch` is configured to allow searching in that path.
+  Searches files through DMS (`dsearch` backend must be [installed](https://danklinux.com/docs/danksearch/) and available on `localhost:43654`). You can optionally specify a folder scope to limit the search to a specific directory. Note that by default, the folder scope will append to your home directory. For example, if you specify `Documents`, the search will be limited to `~/Documents`. If you want to specify an absolute path, you can start your option with `/` (e.g., `/path/to/folder`). If you do, make sure `dsearch` is configured to allow searching in that path.
 
 
 - `dsearch_index` (Reindex Files for Search)  
-  Runs asynchronous indexing with a required mode dropdown argument:
+  Runs asynchronous indexing with a required dropdown mode argument:
   - `quick`
   - `full`
 
