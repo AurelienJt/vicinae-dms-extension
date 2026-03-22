@@ -15,7 +15,7 @@ export const HOME_DIRECTORY = USER ? `/home/${USER}/` : "/home/";
 
 const SEARCH_ENDPOINT = `http://localhost:${dsearch_port}/search`;
 const SEARCH_RESULT_LIMIT = "12";
-const DEFAULT_QUERY = ".pdf";
+const DEFAULT_QUERY = "";
 
 export type PrettyHit = {
   fileName: string;
@@ -46,7 +46,7 @@ export function cleanFolderSpecifier(folderSpecifier?: string | null): string {
     return trimmedFolderSpecifier;
   }
 
-  return `${HOME_DIRECTORY}${trimmedFolderSpecifier}`;
+  return `${HOME_DIRECTORY}${trimmedFolderSpecifier}/`;
 }
 
 /** Returns the parent directory portion of a file path. */
@@ -126,15 +126,14 @@ export async function fetchData(
     type: searchMode,
     folder,
   });
+  console.log(
+    `Fetching data with query: ${normalizedQuery}, mode: ${searchMode}, folder: ${folder}`,
+  );
 
   try {
     const { statusCode, body } = await request(
       `${SEARCH_ENDPOINT}?${fetchParams.toString()}`,
     );
-    if (statusCode < 200 || statusCode >= 300) {
-      throw new Error(`Search request failed with status ${statusCode}`);
-    }
-
     const data: Data = (await body.json()) as Data;
     return data.hits;
   } catch (error) {
